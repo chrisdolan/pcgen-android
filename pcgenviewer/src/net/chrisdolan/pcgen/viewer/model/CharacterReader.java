@@ -29,6 +29,8 @@ public class CharacterReader {
             throw new FileNotFoundException("File does not exist -- " + file);
     	
 		SourceSelectionFacade sources = CharacterManager.getRequiredSourcesForCharacter(file, delegate);
+		if (sources == null)
+			throw new IOException("Could not find sources -- " + file);
 		SourceFileLoader sourceLoader = new SourceFileLoader(sources, delegate);
 		sourceLoader.execute();
 		DataSetFacade data = sourceLoader.getDataSetFacade();

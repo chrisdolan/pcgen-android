@@ -23,7 +23,8 @@ public class FileUtil {
 		return out;
 	}
 
-	public static void unzip(ZipInputStream zis, File destDir) throws IOException {
+	public static int unzip(ZipInputStream zis, File destDir) throws IOException {
+		int numFiles = 0;
 		byte[] buf = new byte[4096];
 		while (true) {
 			ZipEntry zipEntry = zis.getNextEntry();
@@ -41,9 +42,11 @@ public class FileUtil {
 						break;
 					fos.write(buf, 0, bytesRead);
 				}
+				numFiles++;
 			} finally {
 				fos.close();
 			}
         }
+		return numFiles;
 	}
 }

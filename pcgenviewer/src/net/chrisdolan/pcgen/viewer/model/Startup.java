@@ -152,8 +152,9 @@ public class Startup {
 					try {
 						ZipInputStream zis = new ZipInputStream(is);
 						try {
-							FileUtil.unzip(zis, thisCacheDir);
+							int numFiles = FileUtil.unzip(zis, thisCacheDir);
 							success = true;
+							logger.info("Exploded " + numFiles + " files from " + apkFile + " to " + appCacheDir);
 						} finally {        
 							zis.close();
 						}
