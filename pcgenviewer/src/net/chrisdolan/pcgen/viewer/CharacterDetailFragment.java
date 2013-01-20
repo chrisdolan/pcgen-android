@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Shows a single .pcg character
+ * @author chris
+ */
 public class CharacterDetailFragment extends Fragment {
 
     public static final String ARG_ITEM_ID = "item_id";

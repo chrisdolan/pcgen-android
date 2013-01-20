@@ -7,6 +7,10 @@ import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.system.PropertyContext;
 
+/**
+ * Callback functions from the engine to the UI. This needs a lot of work to fill in the "TODO" methods.
+ * @author chris
+ */
 final class AndroidUIDelegate implements UIDelegate {
 	Logger logger = Logger.getLogger(AndroidUIDelegate.class.getName());
 	@Override

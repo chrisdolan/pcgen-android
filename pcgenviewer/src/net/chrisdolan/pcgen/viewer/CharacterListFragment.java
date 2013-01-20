@@ -12,6 +12,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Lets user select from a list of PCGen characters. This is mostly boilerplate now,
+ * but I want it to be richer including controls to load new characters or remove ones
+ * from the list. The list model should include checking the filesystem for newly missing
+ * .pcg files at boot.
+ * 
+ * @author chris
+ */
 public class CharacterListFragment extends ListFragment {
 
     private static final String STATE_ACTIVATED_POSITION = "activated_position";

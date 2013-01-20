@@ -13,6 +13,14 @@ import pcgen.system.PluginClassLoader;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
+/**
+ * This is a heavy workaround for the PluginClassLoader. That class doesn't work at
+ * all in Android because it wants to search through .jar files to find .class files.
+ * Instead, I load a pre-generated list of plugin classes from a flat file (see
+ * ant-preparefiles.xml) and then send those classes to the plugin loaders.
+ * 
+ * @author chris
+ */
 public class AndroidPluginLoader extends PluginClassLoader {
 	private final MapToList<Class<?>, PluginLoader> loaderMap = new HashMapToList<Class<?>, PluginLoader>();
 	private final LazyStreamOpener opener;
@@ -40,20 +48,20 @@ public class AndroidPluginLoader extends PluginClassLoader {
 		}
 		loadPluginClasses(pluginClassNames);
 	}
-	public MapToList<String, String>readPluginClasses() throws IOException {
+
+	/**
+	 * Reads a flat file of classes, which were early collected from plugin jar files at compile time.
+	 * 
+	 * @return a list of class names from each plugin. Right now, the plugin name is always empty
+	 *    (just an implementation limitation).
+	 * @throws IOException
+	 */
+	MapToList<String, String>readPluginClasses() throws IOException {
 		MapToList<String, String> pluginClassNames = new HashMapToList<String, String>();
 		InputStream is = opener.open();
 		try {
 			Properties p = new Properties();
 			p.load(is);
-//			for (String pluginName : p.stringPropertyNames()) {
-//				String[] classNames = p.getProperty(pluginName).split("\\s*,\\s*");
-//				for (String className : classNames) {
-//					className = className.trim();
-//					if (!className.isEmpty())
-//						pluginClassNames.addToListFor(pluginName, className);
-//				}
-//			}
 			for (String className : p.stringPropertyNames()) {
 				String pluginName = p.getProperty(className);
 				className = className.trim();
@@ -67,7 +75,8 @@ public class AndroidPluginLoader extends PluginClassLoader {
 		}
 		return pluginClassNames;
 	}
-	public void loadPluginClasses(MapToList<String, String> pluginClassNames) {
+
+	void loadPluginClasses(MapToList<String, String> pluginClassNames) {
 		for (String pluginName : pluginClassNames.getKeySet()) {
 			for (String className : pluginClassNames.getListFor(pluginName)) {
 				try {
@@ -94,6 +103,8 @@ public class AndroidPluginLoader extends PluginClassLoader {
 	}
 
 	private void processClass(Class<?> clazz) {
+		// HACK: this is a copy of the private method of the same name in the superclass... 
+
 		int modifiers = clazz.getModifiers();
 		if (Modifier.isInterface(modifiers) || Modifier.isAbstract(modifiers))
 		{

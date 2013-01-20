@@ -7,6 +7,10 @@ import java.util.logging.Logger;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.UIDelegate;
 
+/**
+ * Model for a single character. This holds the loaded .pcg file.
+ * @author chris
+ */
 public class CharacterItem {
     private static final Logger logger = Logger.getLogger(CharacterContent.class.getName());
     private static final UIDelegate uiDelegate = new AndroidUIDelegate();
@@ -19,16 +23,9 @@ public class CharacterItem {
         this.id = id;
         this.file = file;
 		try {
-            // ClassLoader classLoader = CharacterReader.class.getClassLoader();
-            // ClassLoader classLoader = new Bundle().getClassLoader();
-            // URL url = classLoader.getResource(content);
-            // if (url == null) {
-            // logger.warning(content + ": null URL");
-            // } else {
-				Startup.init();
-				CharacterReader reader = new CharacterReader();
+			Startup.init();
+			CharacterReader reader = new CharacterReader();
             character = reader.open(file, uiDelegate);
-            // }
         } catch (Exception e) {
             logger.log(Level.WARNING, file + ": exception: " + e, e);
 		}

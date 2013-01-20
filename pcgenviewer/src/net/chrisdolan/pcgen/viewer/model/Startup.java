@@ -33,6 +33,12 @@ import pcgen.util.PJEP;
 import android.content.Context;
 import android.os.Environment;
 
+/**
+ * Lots of bootstrap code, like exploding the flat files into the cache dir
+ * and tweaking the paths in the core config.
+ * 
+ * @author chris
+ */
 public class Startup {
     private static final Logger logger = Logger.getLogger(Startup.class.getName());
 	private static final AtomicBoolean initedContext = new AtomicBoolean(false);

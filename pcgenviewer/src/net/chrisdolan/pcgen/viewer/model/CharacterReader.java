@@ -13,6 +13,10 @@ import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
 
+/**
+ * Wraps a bunch of the .pcg reading details, like pre-req sources.
+ * @author chris
+ */
 public class CharacterReader {
 	public CharacterFacade open(URL url, UIDelegate delegate) throws IOException {
 		// TODO: change PCGen API to accept an URL or cache the remote URL as a local file

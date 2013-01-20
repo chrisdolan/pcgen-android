@@ -3,12 +3,15 @@ package net.chrisdolan.pcgen.viewer.model;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+ * Holder to keep this fiddly code out of the other classes.
+ * @author chris
+ */
 public class FileUtil {
 	public static List<File> deleteTree(File root) {
 		List<File> out = new ArrayList<File>();
