@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="lib" path="/Users/chris/Work/pcgen-svn/code/bin/pcgen.jar" sourcepath="/Users/chris/Work/pcgen-svn/code/src/java"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

@@ -1,0 +1,256 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:Pathfinder RPG for Players - Advanced
+VERSION:5.17.17
+ROLLMETHOD:0|EXPRESSION:0
+PURCHASEPOINTS:N
+CHARACTERTYPE:PC
+POOLPOINTS:0
+POOLPOINTSAVAIL:-1
+GAMEMODE:Pathfinder_RPG
+TABLABEL:0
+AUTOSPELLS:Y
+USEHIGHERKNOWN:N
+USEHIGHERPREPPED:N
+LOADCOMPANIONS:N
+USETEMPMODS:Y
+AUTOSORTGEAR:Y
+SKILLSOUTPUTORDER:0
+IGNORECOST:N
+ALLOWDEBT:N
+AUTORESIZEGEAR:Y
+
+# Character Bio
+CHARACTERNAME:Hrig the Butcher
+TABNAME:Hrig
+PLAYERNAME:Chris Dolan
+HEIGHT:70
+WEIGHT:200
+AGE:22
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHDAY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:/Users/chris/Desktop/Pathfinder/Hrig.png
+PORTRAITTHUMBNAILRECT:188,20,100,100
+
+# Character Attributes
+STAT:STR|SCORE:18
+STAT:DEX|SCORE:12
+STAT:CON|SCORE:20
+STAT:INT|SCORE:7
+STAT:WIS|SCORE:9
+STAT:CHA|SCORE:10
+ALIGN:TN
+RACE:Human
+
+# Character Class(es)
+CLASS:Barbarian|LEVEL:14|SKILLPOOL:0
+CLASSABILITIESLEVEL:Barbarian=1|HITPOINTS:12|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=2|HITPOINTS:12|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=3|HITPOINTS:10|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=4|HITPOINTS:6|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=5|HITPOINTS:5|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=6|HITPOINTS:11|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=7|HITPOINTS:9|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=8|HITPOINTS:8|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=9|HITPOINTS:11|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=10|HITPOINTS:12|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=11|HITPOINTS:8|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=12|HITPOINTS:9|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=13|HITPOINTS:5|SKILLSGAINED:3|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Barbarian=14|HITPOINTS:10|SKILLSGAINED:3|SKILLSREMAINING:0
+
+# Character Experience
+EXPERIENCE:445000
+EXPERIENCETABLE:Medium
+
+# Character Templates
+TEMPLATESAPPLIED:[NAME:Human]
+
+# Character Region
+REGION:None
+
+# Character Skills
+SKILL:Acrobatics|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:Barbarian|RANKS:9.0|COST:1|CLASSSKILL:Y]
+SKILL:Acrobatics (Jump)|OUTPUTORDER:2|
+SKILL:Appraise|OUTPUTORDER:3|
+SKILL:Bluff|OUTPUTORDER:4|
+SKILL:Climb|OUTPUTORDER:5|CLASSBOUGHT:[CLASS:Barbarian|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Craft (Untrained)|OUTPUTORDER:6|
+SKILL:Diplomacy|OUTPUTORDER:7|
+SKILL:Disguise|OUTPUTORDER:8|
+SKILL:Escape Artist|OUTPUTORDER:9|
+SKILL:Fly|OUTPUTORDER:10|CLASSBOUGHT:[CLASS:Barbarian|RANKS:3.0|COST:1|CLASSSKILL:N]
+SKILL:Heal|OUTPUTORDER:11|
+SKILL:Intimidate|OUTPUTORDER:12|CLASSBOUGHT:[CLASS:Barbarian|RANKS:13.0|COST:1|CLASSSKILL:Y]
+SKILL:Perception|OUTPUTORDER:14|CLASSBOUGHT:[CLASS:Barbarian|RANKS:11.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Untrained)|OUTPUTORDER:15|
+SKILL:Ride|OUTPUTORDER:16|CLASSBOUGHT:[CLASS:Barbarian|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Sense Motive|OUTPUTORDER:17|
+SKILL:Stealth|OUTPUTORDER:18|
+SKILL:Survival|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Barbarian|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Swim|OUTPUTORDER:20|
+SKILL:Knowledge (Religion)|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Barbarian|RANKS:2.0|COST:1|CLASSSKILL:N]
+
+# Character Languages
+LANGUAGE:Common
+
+# Character Feats
+FEATPOOL:-7.0
+
+# Character Abilities
+ABILITY:Favored Class|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Barbarian|TYPE:FavoredClass
+USERPOOL:Favored Class|POOLPOINTS:0.0
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Hit Point|APPLIEDTO:,,,,,,,,,,,,,|TYPE:FavoredClassBonus
+USERPOOL:Favored Class Bonus|POOLPOINTS:0.0
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Dazzling Display|TYPE:Combat|DESC:Your skill with your favored weapon can frighten enemies.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Extra Rage|APPLIEDTO:|TYPE:General|DESC:You can use your rage ability more than narmal.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Shatter Defenses|TYPE:Combat|DESC:Your skill with your chosen weapon leaves opponents unable to defend themselves if you strike them when their defenses are already compromised.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Toughness|TYPE:General.AquaticBloodline.BorealBloodline.ProteanBloodline.StarsoulBloodline.VerdantBloodline.DruidShamanBear.DraconicBloodline.UndeadBloodline|DESC:You have enhanced physical stamina.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Lunge|TYPE:Combat.DruidShamanLion|DESC:You can strike foes that would normally be out of reach.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Critical|APPLIEDTO:Longsword|TYPE:Combat.OracleWeaponMastery|DESC:Attacks made with your chosen weapon are quite deadly.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Longsword|TYPE:Combat.WeaponFocus.DestinedBloodline.OracleWeaponMastery|DESC:You are especially good at using your chosen weapon.
+USERPOOL:FEAT|POOLPOINTS:0.0
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Strength Surge|TYPE:RagePower.SpecialQuality.Extraordinary|DESC:You add +%1 on one Strength check or combat maneuver check, or to your Ccombat Maneuver Defense when an opponent attempts a maneuver against you.&pipe;StrengthSurgeBonus
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Unexpected Strike|TYPE:RagePower.SpecialQuality.Extraordinary|DESC:You can make an attack of opportunity against a foe that moves into any square threatened by you
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Intimidating Glare|TYPE:RagePower.SpecialAttack.Extraordinary|DESC:You can make an Intimidate check against one adjacent foe as a move action.
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:No Escape|TYPE:RagePower.SpecialQuality.Extraordinary|DESC:You can move up to normal your speed as an immediate action, but you can only use this ability when an adjacent foe uses a withdraw action to move away from you.
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Knockback|TYPE:RagePower.SpecialAttack.Extraordinary|DESC:Once per round, you can make a bull rush attempt against one target in place of a melee attack.
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Renewed Vigor|TYPE:RagePower.SpecialQuality.Supernatural|DESC:As a standard action, you heal %1d8+%2 points of damage. This power is can only be used once per day and only while raging.&pipe;RenewedVigorDice&pipe;RenewedVigorBonus
+ABILITY:Rage Power|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Terrifying Howl|TYPE:RagePower.SpecialAttack.Extraordinary|DESC:You unleash a terrifying howl as a standard action.
+USERPOOL:Rage Power|POOLPOINTS:0.0
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Desert Child ~ Trait|TYPE:Trait.RegionalTrait|DESC:You were born and raised in rocky deserts. You are accustomed to high temperatures, and gain a +4 trait bonus on any saving throws made to resist the effects of being in hot conditions and a +1 trait bonus on all saving throws against fire effects.
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:History of Heresy ~ Trait|TYPE:Trait.BasicTrait.FaithTrait|DESC:You were raised with heretical views that have made it not only difficult for you to accept most religious beliefs, but you also have had to live with the fact that you or those you love were often treated as pariahs.
+USERPOOL:Traits|POOLPOINTS:0.0
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Axe (Throwing)|WEAPON:Bardiche|WEAPON:Battleaxe|WEAPON:Bayonet|WEAPON:Bec de Corbin|WEAPON:Bill|WEAPON:Blowgun|WEAPON:Cestus|WEAPON:Chakram|WEAPON:Club]
+WEAPONPROF:[WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Falchion|WEAPON:Flail|WEAPON:Flail (Heavy)|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)]
+WEAPONPROF:[WEAPON:Glaive|WEAPON:Glaive-Guisarme|WEAPON:Grapple|WEAPON:Greataxe|WEAPON:Greatclub|WEAPON:Greatsword|WEAPON:Guisarme|WEAPON:Halberd|WEAPON:Hammer (Light)|WEAPON:Handaxe]
+WEAPONPROF:[WEAPON:Javelin|WEAPON:Kukri|WEAPON:Lance|WEAPON:Longbow|WEAPON:Longspear|WEAPON:Longsword|WEAPON:Lucern Hammer|WEAPON:Mace (Heavy)|WEAPON:Mace (Light)|WEAPON:Morningstar]
+WEAPONPROF:[WEAPON:Pick (Heavy)|WEAPON:Pick (Light)|WEAPON:Pilum|WEAPON:Quarterstaff|WEAPON:Ranseur|WEAPON:Rapier|WEAPON:Rock|WEAPON:Sap|WEAPON:Scimitar|WEAPON:Scythe]
+WEAPONPROF:[WEAPON:Shieldbash (Heavy)|WEAPON:Shieldbash (Light)|WEAPON:Shortbow|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Spear|WEAPON:Spear (Boar)|WEAPON:Spells (Ray)|WEAPON:Spells (Touch)]
+WEAPONPROF:[WEAPON:Spiked Armor|WEAPON:Stake|WEAPON:Starknife|WEAPON:Sword (Bastard)|WEAPON:Sword (Short)|WEAPON:Sword Cane|WEAPON:Trident|WEAPON:Unarmed Strike|WEAPON:Waraxe (Dwarven)|WEAPON:Warhammer]
+
+# Character Equipment
+MONEY:9845267.5
+EQUIPNAME:Belt of Giant Strength +6|OUTPUTORDER:5|COST:36000|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Handy Haversack|OUTPUTORDER:21|COST:2000|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Potion of Cure Light Wounds|OUTPUTORDER:28|COST:50|WT:0.0|QUANTITY:9.0
+EQUIPNAME:Arrow|OUTPUTORDER:16|COST:0.05|WT:0.15|QUANTITY:43.0|CUSTOMIZATION:[BASEITEM:Arrow|DATA:NAME=Arrow$EQMOD=STEEL.WOOD]
+EQUIPNAME:Tindertwig|OUTPUTORDER:31|COST:1|WT:0.0|QUANTITY:15.0
+EQUIPNAME:Flint and Steel|OUTPUTORDER:23|COST:1|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Ring of Protection +3|OUTPUTORDER:10|COST:18000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Hrig's Winged Boots|OUTPUTORDER:11|COST:10000.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Boots|DATA:NAME=Hrig's Winged Boots$EQMOD=BNS_SKL_CMP&pipe;Acrobatics (Jump)=+10]
+EQUIPNAME:Bag of Tricks (Tan)|OUTPUTORDER:14|COST:16000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Headband of Inspired Wisdom +4|OUTPUTORDER:1|COST:16000|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Phylactery of Faithfulness|OUTPUTORDER:25|COST:1000|WT:0.02|QUANTITY:1.0
+EQUIPNAME:Potion of Cure Serious Wounds|OUTPUTORDER:29|COST:750|WT:0.0|QUANTITY:3.0
+EQUIPNAME:Shield +1 (Heavy/Steel/Shield Spikes)|OUTPUTORDER:12|COST:1180.0|WT:20.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Shield (Heavy/Steel)|DATA:NAME=Shield +1 (Heavy/Steel/Shield Spikes)$EQMOD=STEEL.PLUS1S.SPIKE_S]
+EQUIPNAME:Arrow +1 (Frost)|OUTPUTORDER:18|COST:166.05|WT:0.15|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Arrow|DATA:NAME=Arrow +1 (Frost)$EQMOD=STEEL.WOOD.PLUS1M.FROST]
+EQUIPNAME:Dagger|OUTPUTORDER:22|COST:2.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Dagger|DATA:NAME=Dagger$EQMOD=STEEL]
+EQUIPNAME:Arrow +1 (Flaming)|OUTPUTORDER:17|COST:166.05|WT:0.15|QUANTITY:10.0|CUSTOMIZATION:[BASEITEM:Arrow|DATA:NAME=Arrow +1 (Flaming)$EQMOD=STEEL.WOOD.PLUS1M.FLAME]
+EQUIPNAME:+1 Fire clip|OUTPUTORDER:13|COST:0.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Art|DATA:NAME=+1 Fire clip$EQMOD=ADDTYPE&pipe;Accessories$SPROP=(Art)]
+EQUIPNAME:Chainmail +3 (Mithral)|OUTPUTORDER:6|COST:13150.0|WT:20.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Chainmail|DATA:NAME=Chainmail +3 (Mithral)$EQMOD=STEEL.PLUS3A.MITHRAL_ARMR_MED]
+EQUIPNAME:Cloak of the Coral Priesthood|OUTPUTORDER:7|COST:1000|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Cloak of Resistance +1|DATA:NAME=Cloak of the Coral Priesthood$SPROP=(Cloak of Resistance +1)]
+EQUIPNAME:Gauntlet|OUTPUTORDER:0|COST:2.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Gauntlet|DATA:NAME=Gauntlet$KEY=Gauntlet (Part of Armor Suit)$EQMOD=STEEL]
+EQUIPNAME:Teak Box|OUTPUTORDER:30|COST:0.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Art|DATA:NAME=Teak Box$EQMOD=ADDTYPE&pipe;Container$SPROP=(Art)]
+EQUIPNAME:Ring of Energy Resistance (Greater/Fire)|OUTPUTORDER:9|COST:44000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Potion (Expeditious Retreat/Wizard/1st)|OUTPUTORDER:27|COST:50.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Potion|DATA:NAME=Potion (Expeditious Retreat/Wizard/1st)$EQMOD=SPL_1USE&pipe;SPELLNAME&lbracket;Expeditious Retreat&rbracket; CASTER&lbracket;Wizard&rbracket; SPELLTYPE&lbracket;Arcane&rbracket; SPELLLEVEL&lbracket;1&rbracket; CASTERLEVEL&lbracket;1&rbracket;]
+EQUIPNAME:Masterwork Dagger from Timyr|OUTPUTORDER:24|COST:302.0|WT:1.0|QUANTITY:2.0|CUSTOMIZATION:[BASEITEM:Dagger|DATA:NAME=Masterwork Dagger from Timyr$EQMOD=STEEL.MWORKW$SPROP=(Masterwork Dagger)]
+EQUIPNAME:Shortbow +1 (Composite/Strength Rating+3)|OUTPUTORDER:20|COST:2600.0|WT:2.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Shortbow (Composite)|DATA:NAME=Shortbow +1 (Composite/Strength Rating+3)$EQMOD=WOOD.PLUS1W.BOWSTR&pipe;+3]
+EQUIPNAME:Longbow +1 (Composite/Strength Rating+4)|OUTPUTORDER:19|COST:2800.0|WT:3.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Longbow (Composite)|DATA:NAME=Longbow +1 (Composite/Strength Rating+4)$EQMOD=WOOD.PLUS1W.BOWSTR&pipe;+4]
+EQUIPNAME:Scarab of Protection|OUTPUTORDER:2|COST:38000.0|WT:0.02|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Scarab of Protection|DATA:NAME=Scarab of Protection$EQMOD=CHARGED_ITEM_12&pipe;CHARGES&lbracket;12&rbracket;]
+EQUIPNAME:Efficient Quiver|OUTPUTORDER:15|COST:1800|WT:2.0|QUANTITY:1.0
+EQUIPNAME:Stone of Good Luck (Luckstone)|OUTPUTORDER:32|COST:20000|WT:0.02|QUANTITY:1.0
+EQUIPNAME:Longsword +2 Al'Faran|OUTPUTORDER:3|COST:32315.0|WT:4.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Longsword|DATA:NAME=Longsword +2 Al'Faran$EQMOD=STEEL.PLUS2W.ICY_BRST$SPROP=(Longsword +2 (Icy Burst))]
+EQUIPNAME:Platinum Ring from Luapnor|OUTPUTORDER:26|COST:50.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Ring|DATA:NAME=Platinum Ring from Luapnor$EQMOD=MWORKB$SPROP=(Ring)]
+EQUIPNAME:Shieldbash (Heavy)|OUTPUTORDER:4|COST:0|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Outfit (Explorer's)|OUTPUTORDER:8|COST:10|WT:8.0|QUANTITY:1.0
+EQUIPNAME:Gauntlet|OUTPUTORDER:0|COST:0.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Gauntlet (Part of Armor Suit)|DATA:KEY=Gauntlet (Part of Armor Suit)$EQMOD=STEEL]
+EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
+EQUIPSET:Belt|ID:0.1.1|VALUE:Belt of Giant Strength +6|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Neck|ID:0.1.10|VALUE:Scarab of Protection|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Shield|ID:0.1.11|VALUE:Shield +1 (Heavy/Steel/Shield Spikes)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.13|VALUE:Stone of Good Luck (Luckstone)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Unarmed|ID:0.1.14|VALUE:Shieldbash (Heavy)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.15|VALUE:Bag of Tricks (Tan)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.16|VALUE:+1 Fire clip|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Shoulders|ID:0.1.17|VALUE:Cloak of the Coral Priesthood|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Feet|ID:0.1.18|VALUE:Hrig's Winged Boots|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Primary Hand|ID:0.1.19|VALUE:Longsword +2 Al'Faran|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Armor|ID:0.1.2|VALUE:Chainmail +3 (Mithral)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Ring|ID:0.1.20|VALUE:Ring of Energy Resistance (Greater/Fire)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.4|VALUE:Efficient Quiver|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Efficient Quiver|ID:0.1.4.1|VALUE:Arrow|QUANTITY:43.0|USETEMPMODS:Y
+EQUIPSET:Efficient Quiver|ID:0.1.4.2|VALUE:Arrow +1 (Frost)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Efficient Quiver|ID:0.1.4.3|VALUE:Longbow +1 (Composite/Strength Rating+4)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Efficient Quiver|ID:0.1.4.4|VALUE:Shortbow +1 (Composite/Strength Rating+3)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Efficient Quiver|ID:0.1.4.5|VALUE:Arrow +1 (Flaming)|QUANTITY:10.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.5|VALUE:Handy Haversack|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.10|VALUE:Tindertwig|QUANTITY:15.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.11|VALUE:Potion of Cure Serious Wounds|QUANTITY:3.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.2|VALUE:Dagger|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.3|VALUE:Flint and Steel|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.4|VALUE:Masterwork Dagger from Timyr|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.5|VALUE:Phylactery of Faithfulness|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.6|VALUE:Platinum Ring from Luapnor|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.7|VALUE:Potion (Expeditious Retreat/Wizard/1st)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.8|VALUE:Potion of Cure Light Wounds|QUANTITY:9.0|USETEMPMODS:Y
+EQUIPSET:Handy Haversack|ID:0.1.5.9|VALUE:Teak Box|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Headband|ID:0.1.6|VALUE:Headband of Inspired Wisdom +4|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Torso|ID:0.1.7|VALUE:Outfit (Explorer's)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Ring|ID:0.1.9|VALUE:Ring of Protection +3|QUANTITY:1.0|USETEMPMODS:Y
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+TEMPBONUS:FEAT=Rage|TBTARGET:PC|TBBONUS:COMBAT&pipe;AC&pipe;RAGEACPENALTY|TBBONUS:CHECKS&pipe;WILL&pipe;RAGESAVEBONUS&pipe;TYPE=RAGE|TBBONUS:STAT&pipe;CON&pipe;RAGECONBONUS&pipe;TYPE=RAGE|TBBONUS:STAT&pipe;STR&pipe;RAGESTRBONUS&pipe;TYPE=RAGE|TBBONUS:VAR&pipe;RAGING&pipe;1
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:None|DEITYDOMAINS:[DOMAIN:Agathion Subdomain|DOMAIN:Air|DOMAIN:Ancestors Subdomain|DOMAIN:Animal|DOMAIN:Arcane Subdomain|DOMAIN:Archon Subdomain (Good)|DOMAIN:Archon Subdomain (Law)|DOMAIN:Artifice|DOMAIN:Ash Subdomain|DOMAIN:Azata Subdomain (Chaos)|DOMAIN:Azata Subdomain (Good)|DOMAIN:Blood Subdomain|DOMAIN:Catastrophe Subdomain|DOMAIN:Caves Subdomain|DOMAIN:Chaos|DOMAIN:Charm|DOMAIN:Cloud Subdomain|DOMAIN:Community|DOMAIN:Construct Subdomain|DOMAIN:Curse Subdomain|DOMAIN:Daemon Subdomain|DOMAIN:Darkness|DOMAIN:Day Subdomain|DOMAIN:Death|DOMAIN:Decay Subdomain|DOMAIN:Deception Subdomain|DOMAIN:Defense Subdomain|DOMAIN:Demon Subdomain (Chaos)|DOMAIN:Demon Subdomain (Evil)|DOMAIN:Destruction|DOMAIN:Devil Subdomain (Evil)|DOMAIN:Devil Subdomain (Law)|DOMAIN:Divine Subdomain|DOMAIN:Earth|DOMAIN:Evil|DOMAIN:Exploration Subdomain|DOMAIN:Family Subdomain|DOMAIN:Fate Subdomain|DOMAIN:Feather Subdomain|DOMAIN:Ferocity Subdomain|DOMAIN:Fire|DOMAIN:Freedom Subdomain|DOMAIN:Fur Subdomain|DOMAIN:Glory|DOMAIN:Good|DOMAIN:Growth Subdomain|DOMAIN:Healing|DOMAIN:Heroism Subdomain|DOMAIN:Home Subdomain|DOMAIN:Honor Subdomain|DOMAIN:Ice Subdomain|DOMAIN:Inevitable Subdomain|DOMAIN:Insanity Subdomain|DOMAIN:Knowledge|DOMAIN:Language Subdomain|DOMAIN:Law|DOMAIN:Leadership Subdomain|DOMAIN:Liberation|DOMAIN:Light Subdomain|DOMAIN:Loss Subdomain|DOMAIN:Love Subdomain|DOMAIN:Luck|DOMAIN:Lust Subdomain|DOMAIN:Madness|DOMAIN:Magic|DOMAIN:Martyr Subdomain|DOMAIN:Memory Subdomain|DOMAIN:Metal Subdomain|DOMAIN:Murder Subdomain|DOMAIN:Night Subdomain|DOMAIN:Nightmare Subdomain|DOMAIN:Nobility|DOMAIN:Oceans Subdomain|DOMAIN:Plant|DOMAIN:Protean Subdomain|DOMAIN:Protection|DOMAIN:Purity Subdomain|DOMAIN:Rage Subdomain|DOMAIN:Repose|DOMAIN:Resolve Subdomain|DOMAIN:Restoration Subdomain|DOMAIN:Resurrection Subdomain|DOMAIN:Revolution Subdomain|DOMAIN:Rune|DOMAIN:Seasons Subdomain|DOMAIN:Smoke Subdomain|DOMAIN:Souls Subdomain|DOMAIN:Storms Subdomain|DOMAIN:Strength|DOMAIN:Sun|DOMAIN:Tactics Subdomain|DOMAIN:Thievery Subdomain|DOMAIN:Thought Subdomain|DOMAIN:Toil Subdomain|DOMAIN:Trade Subdomain|DOMAIN:Travel|DOMAIN:Trickery|DOMAIN:Undead Subdomain|DOMAIN:War|DOMAIN:Wards Subdomain|DOMAIN:Water|DOMAIN:Weather|DOMAIN:Wind Subdomain]|ALIGNALLOW:|DESC:None|HOLYITEM:None|DEITYFAVWEAP:[WEAPON:ALL]|DEITYALIGN:
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+CHARACTERDMNOTES:
+
+# Kits
+
+# Character Master/Follower
+
+# Character Notes Tab
+NOTE:Kills|ID:1|PARENTID:-1|VALUE:Mokknokk, pugwampi leader, baboon, stirge via wall bash, gnoll, two-handed slash, periton, two-handed slash, 2 x gnoll, two-handed slash, 1 charging gnoll (1H no rage), 1 gnoll (2H behead), big gnoll&colon; Ugrek (2H crit), 3x coup sleeping gnoll, falchion gnoll; Dashke, 2x Choker, Fire elemental, Demon, mob guy; golden armband guy, 3x spear gnoll, scorpion, gnoll, ~3 gnolls, Unchosen Gnoll, slave, gnoll, hyenadon, 2x gnoll, gnoll adept, guard gnoll, hookah gnoll, carrion king, 2x guard gnoll, 2x wrast, torturer, unchosen gnoll x3, giant worm, gnoll archer x4, half orc barbarian, mercenary x4, thug, summoned mephit, 2x guard, 2x subdual guard, gargoyle, ghoul, 2x guard, snakeman, earth shaitan, shaitan, fire giant, elf assassin, hell hound, hydra lizardman, Killzar the ghost dwarf eunuch, dragonfly, Jann, 13 gnolls, Jann, janni x2, efriti x3, nightmare/cauchemer x2
+NOTE:Feat Notes|ID:2|PARENTID:-1|VALUE:Intimidate DC&colon; 10+HD+Wis&nl;History of Heresy&colon; +1 vs. divine spells&nl;Desert Child&colon; +4 save vs heat, +1 save vs fire&nl;Dazzling Display&colon; Intimidate check against all foes within 30'.&nl;   Full round action. Can use attack roll&nl;Shatter Defenses&colon; hit &amp; shaken -> flat footed to my attacks until the end of my next turn&nl;Lunge&colon; +5 reach for -2 AC until my next round&nl;Gory Finish&colon; single attack, neg HP -> swift dazzling display&nl;Rage&colon; 41 rounds/day (2+Con+lvl*2) + 6 from Extra Rage&nl;Rage&colon; Knockback, bull rush instead of one melee attack, dmg = Str, no AoO&nl;Rage&colon; No escape, 1/rage, 2x speed chase a withdrawal&nl;Rage&colon; Intimidating Glare&nl;Rage&colon; Terrifying Howl, std action, shaken->1d4+1 panic, Will DC 10+lvl/2+Str=27&nl;Rage&colon; Renewed Vigor, 3d8+Con HP, 1/day, std action&nl;Rage&colon; Unexpected Strike, AoO against threatened square, 1/rage&nl;Rage&colon; Strength Surge, str/cmd/cmb +=lvl 1/rage
+NOTE:Combat stats|ID:3|PARENTID:-1|VALUE:Damage taken&colon; 3916&nl;Pugwampi(3,2,4,4), Party(5,7,7) 1, 1 (bit? by Luapnor), 3 con from Stirge, undead priest(7), gnolls in battle market(7,10), demon(17,11,5), bleeding(7), spear gnolls(11,7), Kardswann axe(20,11,19), gnoll arrows+bolts(18,5), spears(16,8, 11->unconscious), bleed(1), ice bolt(6), pit trap(1), falchion gnoll(9,5), feigned-limp gnoll(7), Choker(6,4,5), wall(2), Haydar(13,17), fire elemental(7,10), mummy(7,7), demon(20,9,13), falling(14), fall down stairs(3), axe gladiator(8), mob aoo from bull rush(3), Burthank(15), Haydar(14,10,14,10), Luapnor(3), bleed(2), spear gnoll on slope(10,11),scorpion(grappled, 2 claws&colon; 9), false stair spike(1), misc gnoll(20), hyenadon bite(13,20), magic missle(6), urn(2), gnoll cleric axe(16), carrion king(31,26,14,22,20,14), gnoll guard(12), Rokuva(19), gnoll guard(11), wrast(4), ghost(1,1,12,5), WaitingBeast(24), gnoll crossbow(7), unchosen(bite&colon;9, claw&colon;7,38,6,10), worm(42,42), archers(13&lbracket;4 arrows&rbracket;,merc&colon;2,merc crit&colon;6,7), sorceress magic missile(7,8,8,8,7,9), thug(shortsword&colon;7,7), guard(3), gargoyle(gore&colon;2,claw&colon;3,15), guard(8), priest(spiritual weap&colon;6), lake moster(7Str, held), Father Jackal(slept, crit&colon;38), Jackal's beast(tentacle&colon;8, bite/acid/horror&colon;19,4, acid&colon;7), ~18, snake bite(16), held by snakewoman(0), sand dragon(34,21,15,11,7,11,15,10,6,17->unconscious), Nex fireball(subdual&colon;23,21,24), defensive shock(25), Nex magic missile(14,18), shaitan(33), gargoyle(6), falling(2), shaitan(18,13,17,17,16,19), stone guardian(17,12,7,9), shaitan(AoO&colon;18,19,15,18), brass golem(3,1,5,9,crit&colon;22,2,6,2,12,18), gargantuan brass construct(5,17,12), fire giant(23,23,23,26,26,18,25,21), Efreeti(82), salamander(fireball&colon;16,scythe&colon;19,19) invis assassin poison death attack(9), thrown rock(20), giant(22,22,26,10,12), magmen heat(3), ghost(2,3,8) Effriti(5,8,5,11,5,10), Black djinn(23,18,16,9), barbed devil(6,10,13,grappled,24,19,6,12,11,9,4=law cube,4,16), lizardmen(arrow&colon;1,24,2,20,6,7), hydra(28,fire=20), lizardman wizard(9,7,20), hydra(12,5,11,11,23,62=killed!), Effriti(scorching ray=1,7,6), Killzar(12), dragonfly(3), lightning(29), ghoul(13,2), djinn(15,21&lbracket;lightning&rbracket;,7,13), ghoul(9,14), dragon fire(13), ?(91), cleric?(21,21,15), lightning trap(40), Janni arrows(6,10,crit&colon;20,5,14,17),, janni arrow(9,11,8,11,12,sneak&colon;19,15,9,11), golem(11,17), efriti(9,5,10,10,16), statue(28*,18,16,10,19,17,13),carrion king(14,17), heat(4), janni(6,9,8,6), heat(2), wall of fire(10,21), efriti(18,18,punch&colon;15,13,19,ranseur&colon;20,25,42,10,15), javoul(62,scorching ray&colon;10),lava(9,67), wall of fire(6,19)&nl;&nl;Healing&colon; 2856 (+?)&nl;1,3,13,1,4,2,5, CLW potion(3), fellaped(11), luapnor(4), luapnor(8,3,4), tuek's cure moderate potion(18), luapnor(41, 10, 6, 9) potion(17), princess' cleric(21), luapnor(6,7,8,18,6), Luapnor(8,8,22), 21,10,20,9, trogs(10), 15,9,9,12,14,13,12,10,10,25,15,18, 7,19,12,8,17,18,13,4,2,6,18,12,1,48,5,14,7,12, 13, 11,15,8,16,11,13,15,15,10,16,13, 51, 17,17,25,16,11,11,10,11,11,9, 13,10,9,11,8,8,25, 8,25,10,11,9,10,7, 16,11,13,10,13,10,57, 8,12,18,15, 28,35,10,19,16, 23,13,19, 24,33,24, 14,10, 20(rage),30,23,29, 26(abadar),12, 28,17,14,18,6,4, 38, 9,14,12,14,14,16,12,8, 20R,3,17,18,20,15,23,3, 17R,10,44,32,11,26,17,8,6, 37, 21R,30,23,26,13,130, 28,112&nl;&nl;Hits&colon; 6161&nl;7,6,3,9,5,3,4,14,&lbracket;10,15,15&rbracket;-DR,14,12,11,8,13,Ogre named Strangler(crit&colon;13),failed crit&colon;8,8,demon(13), 1H gnoll kill(7), 1H knocked gnoll to 0(11), 2H gnoll kill(16), Ugrek 2H crit(21), Kardswann(27 crit, 15), 2H gnoll(11), near-crit AoO gnoll(11), charge crossbow gnoll(9), thrown dagger at icebolt gnoll(6), 2H falchion gnoll(9,12), Dashke(11), spider(8), snake(13), choker(8,14), fire elemental(12, 11), demon(13,16,14,11,11), 2H to de-hand Skarthank(9), axe-gladiator(13 subdual, 7 shieldbash, 13 slash), 2H to stealing target(9), mob guy(12), golden arm band(12), Haydar(15,8,11,13), spear gnoll on slope(10,10,14,16), giant scorpion(12,9), gnoll(13), Lazrul(12), Unchosen Gnoll(25), human slave(14), gnoll(11,9), slave(10), hyenadon(13,8,10,13), gnoll(13,13) gnoll adept(9), guard gnoll(13,10), carrion king(11,11,20,19,15),gnoll guard(10), Rokuva(14,13), guard(16,16), wrasts(12,11,14,14), ghost(16,8), WaitingBeast(14), rokuva(4,shield bash), torturer(13,9,15),unchosen gnoll(14,12,14,9,15,12,13,14,14),giant worm(15,16,19,16,15,crit&colon;31,off-hand dagger&colon;10),half-orc barbarian(15,~35,8),mercs/gnoll archers(21,crit&colon;19,11,crit&colon;16,26,AoO&colon;12,7), sorceress(13), gnolls?(crit&colon;17,threat&colon;8),thugs(13,17), earth mephit(crit&colon;21), guard(subdual&colon;14, 8,12,11,9,11, subdual&colon;11,10) gargoyle(15,10,14,10) ghoul(9,13) guards(AoO crit kill&colon; 22, 15), lake monster(bow&colon;4, 8,12,8), ?, snake(14,13,16,15), ~30, ram(bow&colon;5), sand dragon(9,13,bow&colon;11,crit bow&colon;29), Nex(4 mirrors, 16,11,35), shaitan(16,14,15), shaitan(flying 2H&colon;12,AoO&colon;14,crit kill&colon;33,17,13,crit&colon;28,13), spikestone guardian(19,15,19,19,16), shaitan(19,15,crit&colon;24,AoO kill&colon;17,11,11,crit&colon;25,16,11,15), brass golem(13,14,12,17,18,13,12,12,18,12,18), fire giant(13, crit kill&colon;11,10,15,10), efreeti(?), assassin(2H jump&colon;13, crit AoO&colon;23, 10), fire giant(arrow&colon;14,5,5,8) hell hound(10,9 kill,9, 18 1H crit, 2H&colon;12,10,14) ghost(16,17,19 crit, 15,12,15,16,15,15,29 crit), Dagnay(14,16), Rahan(0), Effriti(19 crit,23 crit,15,18,17,28 crit), ghost(10,11,17,16,16,11), salamander(11,15,10,15,16) barbed devil(17,24 crit,16,15,13,28 crit,15,17,25 crit), lizardman(9,12), lizardman(14 kill) hydra(12,32 crit kill) lizard wizard(20,17,17,21,14) pyrohydra(14,35 crit), effriti(frost arrow&colon;17,17; 12), killzar(11, ghost/ghost will battle kill), dragonfly(20 crit,13,13,13 kill), Black djinn(18,14,15,18,21,21,22), Ezr(13,13,18,17,18 kill), Janni(17,crit&colon;45,critAoO&colon;60,26,22,kill&colon;25), ?, Gnoll(16,crit,18,17,crit,14,19,19,18,18,crit&colon;38,20,crit&colon;46,crit&colon;42,20,17,18), spider(20,14), cleric(22,17,21,23), Janni(21,21,25,grapple&colon;12,crit+kill&colon;49), Inevitable(21,22,20,25,lots more...), janni(25,crit/lunge&colon;44,arrow&colon;13,kill&colon;12,7,8,13,11), golem(arrow&colon;11,9,9,sword&colon;20,22,21), efritti(25,26,24,kill&colon;25), statue(26,26,27,27), undead gnoll(30), carrion king(30,22,55,24), janni(crit AoO&colon;51,kill invis&colon;18,invis&colon;18,26,28,21,23), nightmare(crit&colon;48,23,21,kill&colon;23,crit kill&colon;43) efriti(20,30,27,crit kill 59,30,28,crit kill&colon;58), javoul(26), fire giant(19,20,16,13)&nl;&nl;Unconscious&colon; stirge+rage, demon, Kardswann, spear gnoll, Haydar, sand dragon, pyrohydra(KILLED)&nl;&nl;Rage&colon; 7,1,3,5,10,6,11,7,9,3,6,4,3,9,5,4,5,?,4,7,10,7,9,13,11,4,5,5,1,12,7, 3,9,3,6,1,6,8,11, 3,13,?,9, 10,3,13,7,10,1,9,7, 4,2, 4,6,11,4,7, 8, 10, 4,4, 5, 8&nl;
+
+# Age Set Selections
+AGESET:1:0:0:0:0:0:0:0:0:0
+
+# Campaign History
+
+# Suppressed Biography Fields
+SUPPRESSBIOFIELDS:SKIN_TONE|HAIR_COLOR|HAIR_STYLE|EYE_COLOR
+
