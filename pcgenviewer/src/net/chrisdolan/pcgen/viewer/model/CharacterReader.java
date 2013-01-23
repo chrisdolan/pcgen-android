@@ -27,11 +27,11 @@ public class CharacterReader {
     }
 
     public CharacterFacade open(File file, UIDelegate delegate) throws IOException {
-    	if (!PCGFile.isPCGenCharacterFile(file))
-            throw new IOException("File is not a PCGen file -- " + file);
     	if (!file.exists())
             throw new FileNotFoundException("File does not exist -- " + file);
-    	
+    	if (!PCGFile.isPCGenCharacterFile(file))
+            throw new IOException("File is not a PCGen file -- " + file);
+
 		SourceSelectionFacade sources = CharacterManager.getRequiredSourcesForCharacter(file, delegate);
 		if (sources == null)
 			throw new IOException("Could not find sources -- " + file);

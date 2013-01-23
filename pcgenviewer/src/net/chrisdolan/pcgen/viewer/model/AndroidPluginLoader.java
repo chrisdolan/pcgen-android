@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Modifier;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import net.chrisdolan.pcgen.viewer.model.Startup.LazyStreamOpener;
 import pcgen.base.util.HashMapToList;
@@ -22,6 +23,7 @@ import pcgen.util.Logging;
  * @author chris
  */
 public class AndroidPluginLoader extends PluginClassLoader {
+    private static final Logger logger = Logger.getLogger(AndroidPluginLoader.class.getName());
 	private final MapToList<Class<?>, PluginLoader> loaderMap = new HashMapToList<Class<?>, PluginLoader>();
 	private final LazyStreamOpener opener;
 
@@ -77,11 +79,20 @@ public class AndroidPluginLoader extends PluginClassLoader {
 	}
 
 	void loadPluginClasses(MapToList<String, String> pluginClassNames) {
+		int numLoadedClasses = 0;
+		int numSkippedGuiClasses = 0;
+
 		for (String pluginName : pluginClassNames.getKeySet()) {
 			for (String className : pluginClassNames.getListFor(pluginName)) {
+				if (className.contains(".gui.")) {
+					numSkippedGuiClasses++;
+					continue; // GUI plugin classes are guaranteed to fail on Android...
+				}
+
 				try {
 					Class<?> clazz = Class.forName(className);
 					processClass(clazz);
+					numLoadedClasses++;
 				}
 				catch (ClassNotFoundException ex)
 				{
@@ -99,6 +110,10 @@ public class AndroidPluginLoader extends PluginClassLoader {
 							className, e);
 				}
 			}
+		}
+		logger.warning("Loaded some plugin classes: " + numLoadedClasses);
+		if (numSkippedGuiClasses > 0) {
+			logger.warning("Skipped some GUI plugin classes: " + numSkippedGuiClasses);
 		}
 	}
 

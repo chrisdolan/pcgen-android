@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +32,7 @@ public class CharacterContent {
             File[] files = new File(Environment.getExternalStorageDirectory(), "pcgen").listFiles();
             if (files != null) {
                 for (File f : files) {
-                    if (f.getName().toLowerCase().endsWith(".pcg")) {
+                    if (f.getName().toLowerCase(Locale.US).endsWith(".pcg")) {
                         try {
                             addItem(new CharacterItem(f.getName(), f));
                         } catch (Throwable t) {

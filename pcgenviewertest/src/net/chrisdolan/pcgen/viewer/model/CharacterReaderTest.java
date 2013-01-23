@@ -1,5 +1,7 @@
 package net.chrisdolan.pcgen.viewer.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
@@ -24,9 +26,15 @@ public class CharacterReaderTest {
 
     @Test
     public void test() throws IOException {
-		//Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).setLevel(Level.FINEST);
+    	Startup.setPCGenFileRoot(new File("/Users/chris/Work/pcgen-svn"));
+
+    	//Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).setLevel(Level.FINEST);
         UIDelegate delegate = new MockUIDelegate();
-        URL url = CharacterReader.class.getClassLoader().getResource("Hrig-5.17.7.pcg");
+        File pcgenFile = new File("../pcgenviewer/assets/Hrig-5.17.pcg");
+        if (!pcgenFile.exists())
+        	throw new FileNotFoundException("no file at " + pcgenFile.getCanonicalFile().getAbsolutePath());
+		URL url = pcgenFile.toURI().toURL();
+        //URL url = CharacterReader.class.getClassLoader().getResource("Hrig-5.17.7.pcg");
         Assert.assertNotNull(url);
 
 //		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);

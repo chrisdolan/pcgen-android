@@ -49,6 +49,7 @@ public class Startup {
 		if (initedContext.compareAndSet(false, true)) {
             splat(context);
 			explodeFiles(context);
+//	        recursiveShowDir("context.getCacheDir()", context.getCacheDir());
 			String pluginsDir = ConfigurationSettings.getPluginsDir();
 			LazyStreamOpener opener = new LazyStreamOpener() {
 				@Override
@@ -121,16 +122,24 @@ public class Startup {
 		};
 		File apkFile = new File(context.getPackageCodePath());
 		File thisCacheDir = Exploder.explodeFiles(apkFile, context.getCacheDir(), opener);
+		setPCGenFileRoot(thisCacheDir);
+	}
+	public static void setPCGenFileRoot(File root) {
+        fixSettingsPath(ConfigurationSettings.THEME_PACK_DIR,    new File(root, "lib/lnf/themes"));
+        fixSettingsPath(ConfigurationSettings.SYSTEMS_DIR,       new File(root, "system"));
+        fixSettingsPath(ConfigurationSettings.OUTPUT_SHEETS_DIR, new File(root, "outputsheets"));
+        fixSettingsPath(ConfigurationSettings.PLUGINS_DIR,       new File(root, "plugins"));
+        fixSettingsPath(ConfigurationSettings.PREVIEW_DIR,       new File(root, "preview"));
+        fixSettingsPath(ConfigurationSettings.DOCS_DIR,          new File(root, "docs"));
+        fixSettingsPath(ConfigurationSettings.VENDOR_DATA_DIR,   new File(root, "vendordata"));
+        fixSettingsPath(ConfigurationSettings.PCC_FILES_DIR,     new File(root, "data"));
+        fixSettingsPath(ConfigurationSettings.CUSTOM_DATA_DIR,   new File(root, "data/customsources"));
+	}
+
+	private static void fixSettingsPath(String key, File path) {
         ConfigurationSettings settings = ConfigurationSettings.getInstance();
-        settings.setProperty(ConfigurationSettings.THEME_PACK_DIR,    new File(thisCacheDir, "lib/lnf/themes").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.SYSTEMS_DIR,       new File(thisCacheDir, "system").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.OUTPUT_SHEETS_DIR, new File(thisCacheDir, "outputsheets").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.PLUGINS_DIR,       new File(thisCacheDir, "plugins").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.PREVIEW_DIR,       new File(thisCacheDir, "preview").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.DOCS_DIR,          new File(thisCacheDir, "docs").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.VENDOR_DATA_DIR,   new File(thisCacheDir, "vendordata").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.PCC_FILES_DIR,     new File(thisCacheDir, "data").getAbsolutePath());
-        settings.setProperty(ConfigurationSettings.CUSTOM_DATA_DIR,   new File(thisCacheDir, "data/customsources").getAbsolutePath());
+		logger.warning("re-configure settings path " + key + " from " + settings.getProperty(key) + " to " + path);
+        settings.setProperty(key, path.getAbsolutePath());
 	}
 
 	public static class Exploder {
@@ -160,7 +169,7 @@ public class Startup {
 						try {
 							int numFiles = FileUtil.unzip(zis, thisCacheDir);
 							success = true;
-							logger.info("Exploded " + numFiles + " files from " + apkFile + " to " + appCacheDir);
+							logger.warning("Exploded " + numFiles + " files from " + apkFile + " to " + appCacheDir);
 						} finally {        
 							zis.close();
 						}

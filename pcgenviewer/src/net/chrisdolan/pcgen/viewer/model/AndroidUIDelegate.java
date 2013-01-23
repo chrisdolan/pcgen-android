@@ -1,5 +1,6 @@
 package net.chrisdolan.pcgen.viewer.model;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import pcgen.core.facade.CharacterFacade;
@@ -9,6 +10,8 @@ import pcgen.system.PropertyContext;
 
 /**
  * Callback functions from the engine to the UI. This needs a lot of work to fill in the "TODO" methods.
+ * But this initial implementation suffices to get the warning/error messages out.
+ * 
  * @author chris
  */
 final class AndroidUIDelegate implements UIDelegate {
@@ -20,7 +23,7 @@ final class AndroidUIDelegate implements UIDelegate {
 	}
 	@Override
 	public void showWarningMessage(String title, String message) {
-		logger.warning(title + ": " + message);
+		logger.log(Level.WARNING, title + ": " + message, new Exception("stack trace..."));
 	}
 	@Override
 	public boolean showWarningConfirm(String title, String message) {
@@ -47,7 +50,7 @@ final class AndroidUIDelegate implements UIDelegate {
 	}
 	@Override
 	public void showErrorMessage(String title, String message) {
-		logger.severe(title + ": " + message);
+		logger.log(Level.SEVERE, title + ": " + message, new Exception("stack trace..."));
 	}
 	@Override
 	public Boolean maybeShowWarningConfirm(String title, String message,

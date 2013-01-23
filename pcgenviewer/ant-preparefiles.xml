@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="pcgenviewer_prepare" default="build" basedir=".">
-	<property name="pcgen.src.dir" location="/Users/chris/Work/pcgen-svn"/>
-    <property name="fileassets.zipfile" location="assets/datafiles.zip"/>
-    <property name="plugins.jarfile" location="libs/allplugins.jar"/>
-    <property name="plugins.classlist.file" location="assets/pluginclasses.properties"/>
+	<property name="pcgen.src.dir" location="/Users/chris/Work/pcgen-svn" />
+	<property name="fileassets.zipfile" location="assets/datafiles.zip" />
+	<property name="plugins.jarfile" location="libs/allplugins.jar" />
+	<property name="plugins.classlist.file" location="assets/pluginclasses.properties" />
 
-	<target name="build" depends="build.fileassets, build.plugins, build.plugins.classlist"/>
+	<target name="build" depends="build.fileassets, build.plugins, build.plugins.classlist" />
 
 	<target name="build.fileassets">
-		<delete file="${fileassets.zipfile}"/>
+		<delete file="${fileassets.zipfile}" />
 		<zip destfile="${fileassets.zipfile}">
-			<fileset dir="${pcgen.src.dir}/data"/>
-			<fileset dir="${pcgen.src.dir}/outputsheets"/>
-			<fileset dir="${pcgen.src.dir}/preview"/>
-			<fileset dir="${pcgen.src.dir}/system"/>
+			<fileset dir="${pcgen.src.dir}">
+				<include name="data/**" />
+				<include name="outputsheets/**" />
+				<include name="preview/**" />
+				<include name="system/**" />
+			</fileset>
 		</zip>
 	</target>
 
 	<target name="build.plugins">
-		<delete file="${plugins.jarfile}"/>
+		<delete file="${plugins.jarfile}" />
 		<jar destfile="${plugins.jarfile}" duplicate="preserve" filesetmanifest="skip">
 			<restrict>
-				<name name="**/*.class"/>
+				<name name="**/*.class" />
 				<archives>
 					<zips>
-						<fileset dir="${pcgen.src.dir}/plugins" includes="**/*.jar"/>
+						<fileset dir="${pcgen.src.dir}/plugins" includes="**/*.jar" />
 					</zips>
 				</archives>
 			</restrict>
@@ -35,12 +37,11 @@
 		<zipfileset id="allplugins.classlist" src="${plugins.jarfile}" prefix="">
 			<include name="**/*.class" />
 		</zipfileset>
-		<pathconvert pathsep="${line.separator}" dirsep="/" property="allplugins.classes" refid="allplugins.classlist"/>
+		<pathconvert pathsep="${line.separator}" dirsep="/" property="allplugins.classes" refid="allplugins.classlist" />
 		<echo file="${plugins.classlist.file}">${allplugins.classes}</echo>
-        <replace file="${plugins.classlist.file}" token="${plugins.jarfile}:" value=""/>
-        <replaceregexp file="${plugins.classlist.file}" match="\.class$" replace="" byline="true"/>
-        <replaceregexp file="${plugins.classlist.file}" match="/" replace="." flags="g"/>
+		<replace file="${plugins.classlist.file}" token="${plugins.jarfile}:" value="" />
+		<replaceregexp file="${plugins.classlist.file}" match="\.class$" replace="" byline="true" />
+		<replaceregexp file="${plugins.classlist.file}" match="/" replace="." flags="g" />
 	</target>
 
 </project>
-
