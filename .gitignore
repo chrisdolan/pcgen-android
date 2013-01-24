@@ -4,8 +4,8 @@ pcgen.smalldeps
 pcgenviewer/log.txt
 pcgenviewer/assets/datafiles.zip
 pcgenviewer/assets/pluginclasses.properties
-pcgenviewer/bin
 pcgenviewer/gen
 pcgenviewer/libs/allplugins.jar
-pcgenviewertest/bin
+*/bin
+*/.settings
 *~

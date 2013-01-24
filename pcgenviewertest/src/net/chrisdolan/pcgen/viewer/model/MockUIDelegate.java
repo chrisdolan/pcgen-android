@@ -5,7 +5,7 @@ import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.system.PropertyContext;
 
-final class MockUIDelegate implements UIDelegate {
+public final class MockUIDelegate implements UIDelegate {
 	@Override
 	public boolean showWarningPrompt(String title, String message) {
 		// TODO
