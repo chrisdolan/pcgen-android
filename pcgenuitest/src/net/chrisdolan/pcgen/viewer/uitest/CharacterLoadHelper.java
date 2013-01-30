@@ -1,16 +1,17 @@
 package net.chrisdolan.pcgen.viewer.uitest;
 
 import java.io.File;
+import java.io.IOException;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
-import pcgen.gui2.converter.TokenConverter;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
+import pcgen.persistence.GameModeFileLoader.GameModeFilter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.TokenStore;
@@ -36,8 +37,29 @@ public class CharacterLoadHelper {
 		if (taskListener != null)
 			executor.addPCGenTaskListener(taskListener);
 		executor.addPCGenTask(createLoadPluginTask());
-		executor.addPCGenTask(new GameModeFileLoader());
-		executor.addPCGenTask(new CampaignFileLoader());
+		final NotYetDefinedTask gameModeLoaderTask = new NotYetDefinedTask("Load game modes");
+		final NotYetDefinedTask campaignLoaderTask = new NotYetDefinedTask("Load campaigns");
+		executor.addPCGenTask(new PCGenTask() {
+			{
+				setMaximum(100);
+			}
+			public void execute() {
+				setProgress("Create game mode filter", 0);
+				PcgGameModeFilter modeFilter;
+				try {
+					modeFilter = new PcgGameModeFilter(pcgFile);
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+				setProgress("Create game mode loader", 95);
+				gameModeLoaderTask.setTask(new GameModeFileLoader(modeFilter));
+				setProgress("Create campaign loader", 95);
+				campaignLoaderTask.setTask(new CampaignFileLoader(modeFilter));
+				setProgress("Create filtered loaders", 100);
+			}
+		});
+		executor.addPCGenTask(gameModeLoaderTask);
+		executor.addPCGenTask(campaignLoaderTask);
 		final NotYetDefinedTask sourceLoaderTask = new NotYetDefinedTask("Load sources");
 		executor.addPCGenTask(new PCGenTask() {
 			{
@@ -143,7 +165,7 @@ public class CharacterLoadHelper {
 		public void execute() {
 			PCGenTask t = getTask();
 			if (t == null)
-				throw new IllegalStateException("Task is not set yet!");
+				throw new IllegalStateException("Task is not set yet! (msg:"+getMessage()+")");
 			t.execute();
 		}
 
