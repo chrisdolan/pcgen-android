@@ -13,10 +13,13 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
+import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper;
 import net.chrisdolan.pcgen.viewer.model.MockUIDelegate;
 import net.chrisdolan.pcgen.viewer.model.Startup;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.facade.DataSetFacade;
 import pcgen.gui2.csheet.CharacterSheetPanel;
+import pcgen.gui2.facade.CharacterFacadeImpl;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenTask;
 import pcgen.system.PCGenTaskEvent;
@@ -34,7 +37,7 @@ public class HtmlSheet {
 	private HtmlSheet setCharacterFile(final File file) {
 		Thread t = new Thread(new Runnable() {
 			public void run() {
-				MockUIDelegate delegate = new MockUIDelegate();
+				final MockUIDelegate delegate = new MockUIDelegate();
 
 				PCGenTaskListener taskListener = new PCGenTaskListener() {
 					private final long start = System.currentTimeMillis();
@@ -65,11 +68,11 @@ public class HtmlSheet {
 				};
 
 				CharacterLoadHelper.Callback callback = new CharacterLoadHelper.Callback() {
-					public void character(CharacterFacade character) {
+					public void character(PlayerCharacter character, DataSetFacade dataset) {
 						if (null == character) {
 							// todo
 						} else {
-							sheetPanel.setCharacter(character);
+							sheetPanel.setCharacter(new CharacterFacadeImpl(character, delegate, dataset));
 						}
 					}
 				};

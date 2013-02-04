@@ -19,8 +19,6 @@ import java.util.zip.ZipInputStream;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.io.ExportHandler;
-import pcgen.persistence.CampaignFileLoader;
-import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
@@ -30,6 +28,7 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PluginClassLoader;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Environment;
 
@@ -47,6 +46,9 @@ public class Startup {
 
 	public static void initFromContext(final Context context) throws IOException {
 		if (initedContext.compareAndSet(false, true)) {
+			ActivityManager activityManager = (ActivityManager) context.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+
+			logger.warning("Max heap size: " + Runtime.getRuntime().maxMemory() + "; normal=" + activityManager.getMemoryClass() +"/large=" + activityManager.getLargeMemoryClass());
             splat(context);
 			explodeFiles(context);
 //	        recursiveShowDir("context.getCacheDir()", context.getCacheDir());
@@ -64,11 +66,12 @@ public class Startup {
 		}
 	}
 	public static void init() {
-		if (inited.compareAndSet(false, true)) {
-			createLoadPluginTask().execute();
-			new GameModeFileLoader().execute();
-			new CampaignFileLoader().execute();
-		}
+		throw new UnsupportedOperationException();
+//		if (inited.compareAndSet(false, true)) {
+//			createLoadPluginTask().execute();
+//			new GameModeFileLoader().execute();
+//			new CampaignFileLoader().execute();
+//		}
 	}
 
 	private static PluginClassLoader createLoadPluginTask()

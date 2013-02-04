@@ -1,4 +1,4 @@
-package net.chrisdolan.pcgen.viewer.uitest;
+package net.chrisdolan.pcgen.viewer.model;
 
 import java.io.File;
 import java.io.FileReader;
@@ -53,18 +53,18 @@ public class PcgGameModeFilter implements GameModeFilter, CampaignFilter {
 	}
 
 	public boolean acceptDir(File gameModeDir) {
-		System.out.println("Compare " + gameModeName + " to dir " + gameModeDir);
+		//System.out.println("Compare " + gameModeName + " to dir " + gameModeDir);
 		return gameModeName.equals(gameModeDir.getName());
 	}
 	public boolean acceptMode(GameMode gameMode) {
-		System.out.println("Compare " + gameModeName + " to mode " + gameMode.getName() + "/" + gameMode.getDisplayName());
+		//System.out.println("Compare " + gameModeName + " to mode " + gameMode.getName() + "/" + gameMode.getDisplayName());
 		return gameModeName.equals(gameMode.getName());
 	}
 	public boolean acceptPccFile(File campaignFile) {
 		return true; // no basis for rejection yet...
 	}
 	public boolean acceptCampaign(Campaign campaign) {
-		System.out.println("Compare '" + campaignName + "' to campaign '" + campaign.getName() + "'/'" + campaign.getDisplayName() + "'");
+		//System.out.println("Compare '" + campaignName + "' to campaign '" + campaign.getName() + "'/'" + campaign.getDisplayName() + "'");
 		return campaignName.equals(campaign.getName());
 	}
 }
