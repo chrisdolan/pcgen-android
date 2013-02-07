@@ -14,6 +14,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper;
+import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper.Options;
+import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper.Result;
 import net.chrisdolan.pcgen.viewer.model.MockUIDelegate;
 import net.chrisdolan.pcgen.viewer.model.Startup;
 import pcgen.core.PlayerCharacter;
@@ -29,9 +31,11 @@ public class HtmlSheet {
 	private final CharacterSheetPanel sheetPanel = new CharacterSheetPanel();
 	private final JProgressBar progressBar = new JProgressBar();
 	private final JLabel progressLabel = new JLabel();
+	private final File templateFile;
 
 	public HtmlSheet() {
-		sheetPanel.setCharacterSheet(new File(ConfigurationSettings.getPreviewDir(), "d20/fantasy/Standard.htm"));
+		templateFile = new File(ConfigurationSettings.getPreviewDir(), "d20/fantasy/Standard.htm");
+		sheetPanel.setCharacterSheet(templateFile);
 	}
 
 	private HtmlSheet setCharacterFile(final File file) {
@@ -67,17 +71,13 @@ public class HtmlSheet {
 					}
 				};
 
-				CharacterLoadHelper.Callback callback = new CharacterLoadHelper.Callback() {
-					public void character(PlayerCharacter character, DataSetFacade dataset) {
-						if (null == character) {
-							// todo
-						} else {
-							sheetPanel.setCharacter(new CharacterFacadeImpl(character, delegate, dataset));
-						}
-					}
-				};
-
-				new CharacterLoadHelper().load(file, delegate, taskListener, callback);
+				Result result = new CharacterLoadHelper().load(file, delegate, taskListener,
+						new Options().setHtmlWanted(true).setHtmlTemplate(templateFile));
+				if (null == result) {
+					// TODO
+				} else {
+					sheetPanel.setCharacter(new CharacterFacadeImpl(result.getPlayerCharacter(), delegate, result.getDataSetFacade()));
+				}
 			}
 		});
 		t.setDaemon(true);

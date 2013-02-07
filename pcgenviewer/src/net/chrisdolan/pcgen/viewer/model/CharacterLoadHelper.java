@@ -1,8 +1,11 @@
 package net.chrisdolan.pcgen.viewer.model;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.DataSetFacade;
@@ -34,15 +37,38 @@ import pcgen.util.PJEP;
 public class CharacterLoadHelper {
 	private PluginClassLoader pluginClassLoader = null;
 
-	public interface Callback {
-		void character(PlayerCharacter character, DataSetFacade dataset);
+	public static final class Options {
+		private boolean htmlWanted;
+		private File htmlTemplate;
+
+		public boolean isHtmlWanted() {
+			return htmlWanted;
+		}
+		public Options setHtmlWanted(boolean htmlWanted) {
+			this.htmlWanted = htmlWanted;
+			return this;
+		}
+		public File getHtmlTemplate() {
+			return htmlTemplate;
+		}
+		public Options setHtmlTemplate(File htmlTemplate) {
+			this.htmlTemplate = htmlTemplate;
+			return this;
+		}
+	}
+
+	public interface Result {
+		PlayerCharacter getPlayerCharacter();
+		DataSetFacade getDataSetFacade();
+		String getHtml();
 	}
 
 	public void setPluginClassLoader(PluginClassLoader pluginClassLoader) {
 		this.pluginClassLoader = pluginClassLoader;
 		
 	}
-	public void load(final File pcgFile, final UIDelegate uiDelegate, PCGenTaskListener taskListener, final Callback callback) {
+	public Result load(final File pcgFile, final UIDelegate uiDelegate, PCGenTaskListener taskListener, final Options options) {
+		final AtomicReference<Result> pcRef = new AtomicReference<Result>();
 		PCGenTaskExecutor executor = new PCGenTaskExecutor();
 		if (taskListener != null)
 			executor.addPCGenTaskListener(taskListener);
@@ -92,18 +118,57 @@ public class CharacterLoadHelper {
 			}
 			public void execute() {
 				setProgress("Get data set", 0);
-				DataSetFacade data = ((SourceFileLoader)sourceLoaderTask.getTask()).getDataSetFacade();
+				final DataSetFacade data = ((SourceFileLoader)sourceLoaderTask.getTask()).getDataSetFacade();
 				if (data == null)
 					throw new NullPointerException("data set facade is null for sources of " + pcgFile);
 				setProgress("Open character", 10);
-				PlayerCharacter pc = generatePC(pcgFile, data, uiDelegate);
+				final PlayerCharacter pc = generatePC(pcgFile, data, uiDelegate);
 				
 				//CharacterFacade character = CharacterManager.openCharacter(pcgFile, uiDelegate, data);
 				setProgress("Loaded " + pcgFile.getName(), 100);
-				callback.character(pc, data);
+				pcRef.set(new Result() {
+					public PlayerCharacter getPlayerCharacter() {
+						return pc;
+					}
+					public DataSetFacade getDataSetFacade() {
+						return data;
+					}
+					public String getHtml() {
+						return null;
+					}
+				});
 			}
 		});
+		if (options.isHtmlWanted()) {
+			if (null == options.htmlTemplate)
+				throw new IllegalArgumentException("Missing options.htmlTemplate");
+			executor.addPCGenTask(new PCGenTask() {
+				{
+					setMaximum(100);
+				}
+				public void execute() {
+					setProgress("Generate HTML", 0);
+					Result result = pcRef.get();
+					final PlayerCharacter pc = result.getPlayerCharacter();
+					final DataSetFacade data = result.getDataSetFacade();
+					final String html = generateHtml(pc, options.htmlTemplate);
+					setProgress("Loaded " + pcgFile.getName(), 100);
+					pcRef.set(new Result() {
+						public PlayerCharacter getPlayerCharacter() {
+							return pc;
+						}
+						public DataSetFacade getDataSetFacade() {
+							return data;
+						}
+						public String getHtml() {
+							return html;
+						}
+					});
+				}
+			});
+		}
 		executor.execute();
+		return pcRef.get();
 	}
 	private PlayerCharacter generatePC(File file, DataSetFacade dataset, UIDelegate delegate) {
 		// This is cheating by breaking the facade
@@ -150,6 +215,24 @@ public class CharacterLoadHelper {
 		}
 	}
 
+	private String generateHtml(PlayerCharacter pc, File htmlTemplate) {
+		StringWriter out = new StringWriter();
+		BufferedWriter buf = new BufferedWriter(out);
+		ExportHandler handler = new ExportHandler(htmlTemplate);
+		handler.write(pc, buf);
+
+		String genText = out.toString();
+//		genText = genText.replace(COLOR_TAG, cssColor.getCssText());
+		return genText;
+//		ByteArrayInputStream instream = new ByteArrayInputStream(genText.getBytes());
+//		Document doc = null;
+//
+//		URI root = new URI("file", ConfigurationSettings.getPreviewDir().replaceAll("\\\\", "/"), null);
+//		doc = theDocBuilder.parse(new InputSourceImpl(instream,
+//													  root.toString(),
+//													  "UTF-8"));
+//		return doc;
+	}
 	private PluginClassLoader createLoadPluginTask()
 	{
 		String pluginsDir = ConfigurationSettings.getPluginsDir();

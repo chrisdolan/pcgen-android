@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper.Callback;
+import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper.Result;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.UIDelegate;
@@ -20,31 +20,29 @@ public class CharacterItem {
     private static final UIDelegate uiDelegate = new AndroidUIDelegate();
     private static final Executor executor = Executors.newSingleThreadExecutor();
 
-    public String id;
-    public File file;
-	private PlayerCharacter character = null;
-	private final CharacterLoadHelper loader;
+    public final String id;
+    public final File file;
+	public final CharacterLoadHelper loader;
+	public PlayerCharacter character;
+	public String html;
 
     public CharacterItem(String id, final File file, CharacterLoadHelper characterLoadHelper) {
         this.id = id;
         this.file = file;
-		this.loader = characterLoadHelper;
-		executor.execute(new Runnable() {
-			public void run() {
-				try {
-					loader.load(file, uiDelegate, null, new Callback() {
-						public void character(PlayerCharacter character, DataSetFacade dataset) {
-							setCharacter(character);
-						}
-					});
-//					Startup.init();
-//					CharacterReader reader = new CharacterReader();
-//		            character = reader.open(file, uiDelegate);
-		        } catch (Exception e) {
-		            logger.log(Level.WARNING, file + ": exception: " + e, e);
-				}
-			}
-		});
+    	this.loader = characterLoadHelper;
+//		executor.execute(new Runnable() {
+//			public void run() {
+//				try {
+//					Result result = loader.load(file, uiDelegate, null);
+//					setCharacter(result.getPlayerCharacter());
+////					Startup.init();
+////					CharacterReader reader = new CharacterReader();
+////		            character = reader.open(file, uiDelegate);
+//		        } catch (Exception e) {
+//		            logger.log(Level.WARNING, file + ": exception: " + e, e);
+//				}
+//			}
+//		});
     }
 
 

@@ -3,5 +3,7 @@
     <string name="app_name">PCGen Viewer</string>
     <string name="title_character_detail">Character Detail</string>
     <string name="title_character_list">Characters</string>
+    <string name="placeholder_character_name">Character Name</string>
+    <string name="placeholder_progress_message">...</string>
 
 </resources>

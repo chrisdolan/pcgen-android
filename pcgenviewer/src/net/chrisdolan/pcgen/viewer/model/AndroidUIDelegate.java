@@ -14,7 +14,7 @@ import pcgen.system.PropertyContext;
  * 
  * @author chris
  */
-final class AndroidUIDelegate implements UIDelegate {
+public final class AndroidUIDelegate implements UIDelegate {
 	Logger logger = Logger.getLogger(AndroidUIDelegate.class.getName());
 	@Override
 	public boolean showWarningPrompt(String title, String message) {
