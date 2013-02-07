@@ -4,18 +4,17 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import pcgen.core.PlayerCharacter;
-
 import net.chrisdolan.pcgen.viewer.model.CharacterContent;
 import net.chrisdolan.pcgen.viewer.model.CharacterItem;
-import net.chrisdolan.pcgen.viewer.model.Startup;
-import net.chrisdolan.pcgen.viewer.model.CharacterLoadHelper.Result;
+import pcgen.core.PlayerCharacter;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -28,9 +27,10 @@ public class CharacterDetailFragment extends Fragment {
 
 	public static final String ARG_ITEM_ID = "item_id";
 
-	CharacterItem mItem;
-
+	private CharacterItem mItem;
 	private View rootView;
+	private int loadNum = 0;
+	private CharacterLoadTask currentTask;
 
 	public CharacterDetailFragment() {
 	}
@@ -53,9 +53,32 @@ public class CharacterDetailFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_character_detail, container, false);
+		rootView.findViewById(R.id.reload_button).setOnClickListener(new Button.OnClickListener() {
+			public void onClick(View v) {
+				reloadPC();
+			}
+		});
+		loadPC();
+		return rootView;
+	}
+
+	private void reloadPC() {
+		if (mItem != null) {
+			if (currentTask != null) {
+				currentTask.cancel(false);
+				currentTask = null;
+			}
+			mItem.character = null;
+			mItem.html = null;
+			loadPC();
+		}
+	}
+
+	private void loadPC() {
 		applyItem();
 		if (mItem != null) {
-			if (mItem.character == null) {
+			if (mItem.character == null && currentTask == null) {
+				final int localLoadNum = ++loadNum;
 				TextView charName = (TextView) rootView.findViewById(R.id.character_detail);
 				View progressPanel = rootView.findViewById(R.id.progresspanel);
 				final ProgressBar progress = (ProgressBar) rootView.findViewById(R.id.progress);
@@ -65,16 +88,21 @@ public class CharacterDetailFragment extends Fragment {
 				progress.setMax(100);
 				progressMsg.setText("Loading " + mItem.file.getName());
 				progressPanel.setVisibility(View.VISIBLE);
-				CharacterLoadTask characterLoadTask = new CharacterLoadTask(mItem.loader) {
+				currentTask = new CharacterLoadTask(mItem.loader) {
 					private final int rand = new Random().nextInt();
 					@Override
 					protected void onPostExecute(CharacterLoadTaskResult result) {
+						if (localLoadNum != loadNum || isCancelled())
+							return;
 						mItem.character = result.pc;
 						mItem.html = result.html;
+						currentTask = null;
 						applyItem();
 					}
 					@Override
 					protected void onProgressUpdate(CharacterLoadTaskProgress... prog) {
+						if (localLoadNum != loadNum || isCancelled())
+							return;
 						int newmax = prog[0].maximum;
 						int newval = prog[0].value;
 						int oldmax = progress.getMax();
@@ -89,10 +117,9 @@ public class CharacterDetailFragment extends Fragment {
 						logger.warning("progress("+rand+"): " + newval + "/" + newmax + " = " + prog[0].message);
 					}
 				};
-				characterLoadTask.execute(mItem.file);
+				currentTask.execute(mItem.file);
 			}
 		}
-		return rootView;
 	}
 
 	private void applyItem() {
@@ -100,8 +127,8 @@ public class CharacterDetailFragment extends Fragment {
 		WebView webView = (WebView) rootView.findViewById(R.id.html);
 		//View progressPanel = rootView.findViewById(R.id.progresspanel);
 		//progressPanel.setVisibility(View.GONE);
-		PlayerCharacter pc = mItem == null ? null : mItem.character;
-		charName.setText(pc == null ? "<no character>" : pc.getName());
-		webView.loadData(mItem.html == null ? "empty..." : mItem.html, "text/html", "UTF-8");
+		charName.setText(mItem == null ? "<no character>" : mItem.character == null ? mItem.file.getName() : mItem.character.getName());
+		String html = mItem == null ? "" : mItem.html == null ? "Loading..." : mItem.html;
+		webView.loadData(html, "text/html", "UTF-8");
 	}
 }
